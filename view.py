@@ -273,26 +273,24 @@ class HomePage(Frame):
         '''
         # home frame game starts
         super().__init__(parent)
-        self.bg = PhotoImage(file=MENU_BG)
-        self.bg_label = Label(self, image=self.bg)
-        self.bg_label.pack(fill=BOTH, expand=TRUE)
+        
 
         self["bg"] = "#1a1a1a"
 
         # header label
-        self.head = Label(self.bg_label, text="Boggle Game", font=(
+        self.head = Label(self, text="Boggle Game", font=(
             "gothic", 60), bd=5, bg="#1a1a1a", fg="#b71228")
         self.head.pack(fill=BOTH)
 
-        self.bg_label.pack(fill=BOTH, expand=TRUE)
+        self.pack(fill=BOTH, expand=TRUE)
 
         # start buttons config
-        self.start_butt = Button(self.bg_label, text="Start Game!", font=(
+        self.start_butt = Button(self, text="Start Game!", font=(
             "courier", 20), bg="lightblue", bd=3, activebackground="RoyalBlue4")
         self.start_butt.place(x=388, y=130)
 
         # exit button config
-        self.exit = Button(self.bg_label, text="exit", font=(
+        self.exit = Button(self, text="exit", font=(
             "courier", 17), bg="firebrick3", activebackground="red", padx=10, command=lambda: exit(), bd=3, width=7)
         self.exit.place(x=430, y=630)
 
@@ -305,13 +303,10 @@ class GamePage(Frame):
         '''
         # init main game frame
         super().__init__(parent)
-        self.bg = PhotoImage(file=MENU_BG)
-        self.bg_label = Label(self, image=self.bg)
-        self.bg_label.pack(fill=BOTH, expand=TRUE)
 
         self["bg"] = "#1a1a1a"
         # header label
-        self.head = Label(self.bg_label, text="Boggle Game", font=(
+        self.head = Label(self, text="Boggle Game", font=(
             "gothic", 60), bd=5, bg="#1a1a1a", fg="#b71228")
         self.head.pack(fill=BOTH)
         pygame.init()
@@ -322,7 +317,7 @@ class GamePage(Frame):
         # status frame
         self.status_frame()
         # board frame
-        self.board = Frame(self.bg_label, width=400,
+        self.board = Frame(self, width=400,
                            height=400, bg="floralwhite")
         self.board.place(x=290, y=150)
         self.board_frame()
@@ -341,16 +336,16 @@ class GamePage(Frame):
         '''
         # current word label
         self.current = Label(
-            self.bg_label, text="current word:", font=("fixed", 15, BOLD), bg="#cb143e", bd=5, width=20)
+            self, text="current word:", font=("fixed", 15, BOLD), bg="#cb143e", bd=5, width=20)
         self.current.place(x=14, y=150)
 
         # bank of words label
-        self.text = Text(self.bg_label, width=14, height=13,
+        self.text = Text(self, width=14, height=13,
                          bg="#cb143e", font=10, state=DISABLED)
         self.text.place(x=55, y=220)
 
         # score label
-        self.score_label = Label(self.bg_label, text=f"score: 0", font=(
+        self.score_label = Label(self, text=f"score: 0", font=(
             "fangsong ti", 25, BOLD), bd=5, fg="white", bg="#1a1a1a", width=10)
         self.score_label.place(x=30, y=565)
 
@@ -399,12 +394,12 @@ class GamePage(Frame):
         '''
         pack navigation button
         '''
-        self.refresh = Button(self.bg_label, text="refresh choice", font=(
+        self.refresh = Button(self, text="refresh choice", font=(
             "helvetica", 20), bg="#d02c41", activebackground="MistyRose4", bd=3)
         self.refresh.place(x=770, y=250)
         self.buttons["refresh"] = self.refresh
 
-        self.check = Button(self.bg_label, text="check word!", font=(
+        self.check = Button(self, text="check word!", font=(
             "helvetica", 20), bg="#d02c41", activebackground="MistyRose4", bd=3)
         self.check.place(x=783, y=350)
         self.buttons["check"] = self.check
@@ -414,18 +409,18 @@ class GamePage(Frame):
         pack menu buttons
         '''
         # reset board/time
-        self.reset_button = Button(self.bg_label, text="reset", font=(
+        self.reset_button = Button(self, text="reset", font=(
             "courier", 15), bg="SlateBlue1", activebackground="Blue", bd=3, width=12)
         self.reset_button.place(x=660, y=620)
         self.buttons["reset"] = self.reset_button
 
         # exit game
-        self.exit_butt = Button(self.bg_label, text="exit", font=(
+        self.exit_butt = Button(self, text="exit", font=(
             "courier", 15), bg="firebrick3", activebackground="red", command=lambda: exit(), bd=3, width=12)
         self.exit_butt.place(x=190, y=620)
 
         # return to home page button
-        self.return_butt = Button(self.bg_label, text="return", font=(
+        self.return_butt = Button(self, text="return", font=(
             "courier", 15), bg="seagreen3", activebackground="green", bd=3, width=12)
         self.return_butt.place(x=420, y=620)
         self.buttons["return"] = self.return_butt
