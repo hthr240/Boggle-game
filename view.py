@@ -43,6 +43,9 @@ class BoggleGui:
         self.buttons["start"] = self.home.start_butt
         self.buttons["again"] = self.end.play_again
 
+        # Timer ID for managing the game timer
+        self.timer_id = None
+
     def update_display(self, info: dict, btn_name):
         '''
         this method update the window according to the command given
@@ -149,6 +152,12 @@ class BoggleGui:
         self.time_label = Label(
             self.game, text=(f"{self.minutes:02}:{self.seconds:02}"), font=("fangsong ti", 50, BOLD), fg="white", bg="#1a1a1a", highlightthickness=0)
         self.time_label.place(x=760, y=500)
+
+        # Cancel any existing timer before starting a new one
+        if self.timer_id:
+            self.root.after_cancel(self.timer_id)
+            self.timer_id = None
+
         self.clock_helper()
 
     def clock_helper(self):
@@ -158,6 +167,7 @@ class BoggleGui:
         self.time_label.config(text=(f"{minutes:02}:{seconds:02}"))
         if self.time == 0:
             self.time_up()
+            return
 
         # last 10 seconds color change
         if self.time <= 10:
@@ -165,7 +175,9 @@ class BoggleGui:
                 self.time_label["fg"] = "red"
             else:
                 self.time_label["fg"] = "white"
-        self.time_label.after(1000, self.clock_helper)
+
+        # Schedule the next update in 1 second and store the timer ID
+        self.timer_id = self.time_label.after(1000, self.clock_helper)
         self.time -= 1
 
     def time_up(self):
@@ -178,6 +190,9 @@ class BoggleGui:
         self.bg_play(MENU_MUSIC)
         self.end.score_label.config(text=f"your score: {self.points}")
         self.end.pack(pady=80, fill=BOTH, expand=TRUE)
+
+        # Reset the timer ID
+        self.timer_id = None
 
 ################################## frame switch methods ####################################
 
