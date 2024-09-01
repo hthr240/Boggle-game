@@ -7,3 +7,5 @@ controller - combine both game logic and GUI
 
 Each part of the project is an object.
 There are resources such as sounds and images in the project folder.
+
+You can play the game by running the boggle.py file.
