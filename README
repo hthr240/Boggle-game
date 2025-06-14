@@ -1,11 +1,49 @@
-Boggle game
+Boggle Game (Python)
+A GUI-based implementation of the classic Boggle word game built with Python. Includes randomized boards, scoring, sound effects, and a dictionary-based word check.
 
-This project was built with the MVC structure
-model - game logic
-view - GUI, using tkinter library
-controller - combine both game logic and GUI
+Features-
+4×4 randomized Boggle board
 
-Each part of the project is an object.
-There are resources such as sounds and images in the project folder.
+Word validation using a built-in dictionary
 
-You can play the game by running the boggle.py file.
+Interactive GUI with background and button sounds
+
+Scoring system based on word length
+
+Background music and effects (WAV/MP3)
+
+How to Use-
+Install Python 3.x
+
+Run the game:
+
+bash
+Copy
+Edit
+python boggle.py
+Type valid words you find on the board and submit to earn points
+
+Key Files-
+boggle.py: Main launcher for the game
+
+model.py: Game logic and scoring
+
+view.py: GUI using tkinter
+
+boggle_board_randomizer.py: Generates 4×4 randomized board
+
+boggle_dict.txt: Dictionary used for word validation
+
+sounds/: Contains music and sound effects
+
+menu_bg.png: Background image for the UI
+
+Learning Goals-
+GUI programming with tkinter
+
+Handling audio and images in Python
+
+Implementing game logic and validation
+
+File I/O with word dictionaries
+
