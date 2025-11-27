@@ -1,49 +1,30 @@
-Boggle Game (Python)
-A GUI-based implementation of the classic Boggle word game built with Python. Includes randomized boards, scoring, sound effects, and a dictionary-based word check.
+# Boggle Game | Python & MVC Architecture
 
-Features-
-4×4 randomized Boggle board
+A robust, object-oriented implementation of the classic Boggle word game. 
+Architected using the **Model-View-Controller (MVC)** design pattern to ensure strict separation between game logic, data management, and the Tkinter-based user interface.
 
-Word validation using a built-in dictionary
+## 🚀 Key Features
+* **MVC Architecture:** Decoupled codebase where `model.py` handles logic, `view.py` manages the UI, and `controller` bridges interactions.
+* **Recursive Backtracking:** Implements an optimized Depth-First Search (DFS) algorithm to validate user words against a dictionary in real-time.
+* **Dynamic UI:** Responsive `Tkinter` GUI with event listeners, custom asset rendering, and audio integration.
+* **Randomized Board Generation:** Ensures a unique gameplay experience every session.
 
-Interactive GUI with background and button sounds
+## 🛠️ Tech Stack
+* **Language:** Python 3.x
+* **GUI Framework:** Tkinter
+* **Algorithms:** Recursion, Backtracking (DFS)
+* **Design Pattern:** MVC (Model-View-Controller)
 
-Scoring system based on word length
+## 📂 Project Structure
+* `boggle.py`: Entry point (Controller) initializes the app.
+* `model.py`: Encapsulates game rules, score tracking, and dictionary validation.
+* `view.py`: Manages GUI components (Grid, Labels, Buttons).
+* `boggle_board_randomizer.py`: Utility for generating valid game boards.
 
-Background music and effects (WAV/MP3)
+## 📦 How to Run
+Clone the repository:
+   ```bash
+   git clone [https://github.com/hthr240/Boggle-game.git](https://github.com/hthr240/Boggle-game.git)
 
-How to Use-
-Install Python 3.x
-
-Run the game:
-
-bash
-Copy
-Edit
+## Run the game:
 python boggle.py
-Type valid words you find on the board and submit to earn points
-
-Key Files-
-boggle.py: Main launcher for the game
-
-model.py: Game logic and scoring
-
-view.py: GUI using tkinter
-
-boggle_board_randomizer.py: Generates 4×4 randomized board
-
-boggle_dict.txt: Dictionary used for word validation
-
-sounds/: Contains music and sound effects
-
-menu_bg.png: Background image for the UI
-
-Learning Goals-
-GUI programming with tkinter
-
-Handling audio and images in Python
-
-Implementing game logic and validation
-
-File I/O with word dictionaries
-
